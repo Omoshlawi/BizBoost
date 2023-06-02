@@ -29,6 +29,8 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    # 'daphne',
+    # 'channels',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
 
     'core',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -73,8 +76,8 @@ TEMPLATES = [
     },
 ]
 
-# WSGI_APPLICATION = 'bizboost.wsgi.application'
-ASGI_APPLICATION = "bizboost.asgi.application"
+WSGI_APPLICATION = 'bizboost.wsgi.application'
+# ASGI_APPLICATION = "bizboost.asgi.application"
 """Redis backend"""
 CHANNEL_LAYERS = {
     "default": {
