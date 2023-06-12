@@ -23,7 +23,7 @@ class BusinessBranchInline(admin.TabularInline):
 
 @admin.register(BusinessCatalog)
 class BusinessProfileAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'owner', 'address', 'is_approved', 'created', 'updated']
+    list_display = ['name', 'slug', 'owner', 'address', 'is_approved', 'created_at', 'updated_at']
     prepopulated_fields = {'slug': ('name',)}
     list_editable = ['is_approved']
     inlines = [BusinessBranchInline]
