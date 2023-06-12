@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_filters',
     'corsheaders',
+    'taggit',
 
     'core',
     'users',
     'businesses',
     'feedback',
+    'products'
 ]
 
 MIDDLEWARE = [
@@ -145,7 +147,6 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -153,8 +154,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -175,3 +174,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
+
+TAGGIT_CASE_INSENSITIVE = True

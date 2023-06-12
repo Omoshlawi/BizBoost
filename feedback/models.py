@@ -1,14 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
-RATING_CHOICES = [
-    (1, 1),
-    (2, 2),
-    (3, 3),
-    (4, 4),
-    (5, 5)
-]
-
 
 # Create your models here.
 
@@ -20,8 +12,8 @@ class BusinessReview(models.Model):
         on_delete=models.CASCADE
     )
     rating = models.IntegerField(
-        choices=RATING_CHOICES,
-        default=5
+        choices=[(i, i) for i in range(1, 6)],
+        default=4
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -49,3 +41,12 @@ class BusinessContact(models.Model):
 
     class Meta:
         ordering = ('-created_at',)
+
+
+class ProductReview(models.Model):
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
+    product = models.ForeignKey('products.Product', related_name="reviews", on_delete=models.CASCADE)
+    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    review = models.TextField()

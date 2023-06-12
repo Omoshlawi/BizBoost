@@ -7,14 +7,6 @@ import os
 
 from .utils import bs_category_file_name, markers_file_name, business_file_name, business_branch_file_name
 
-RATING_CHOICES = [
-    (1, 1),
-    (2, 2),
-    (3, 3),
-    (4, 4),
-    (5, 5)
-]
-
 
 class BusinessCategory(models.Model):
     category = models.CharField(max_length=200)
@@ -111,5 +103,3 @@ class BusinessBranch(models.Model):
                 self.slug
             ]
         )
-
-
