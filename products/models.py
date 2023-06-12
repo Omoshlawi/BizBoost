@@ -4,7 +4,7 @@ from decimal import Decimal
 
 from taggit.managers import TaggableManager
 
-from products.utils import category_file_name, product_file_name
+from products.utils import category_file_name, product_file_name, product_secondary_image_name
 
 
 # Create your models here.
@@ -75,3 +75,12 @@ class Product(models.Model):
                 self.slug
             ]
         )
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(
+        upload_to=product_secondary_image_name,
+        blank=False,
+        null=False,
+    )

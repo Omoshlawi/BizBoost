@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from feedback.models import BusinessReview, BusinessContact
+from feedback.models import BusinessReview, BusinessContact, ProductReview
 
 
 # Register your models here.
@@ -15,3 +15,10 @@ class ReviewsAdmin(admin.ModelAdmin):
 @admin.register(BusinessContact)
 class ContactAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'phone_number', 'message', 'created_at', 'is_addressed', 'business')
+
+
+@admin.register(ProductReview)
+class ProductReviewAdmin(admin.ModelAdmin):
+    list_display = ['user', 'product', 'rating', 'created', 'updated', 'review']
+    list_filter = ['user', 'created', 'updated', 'rating', 'product']
+    list_editable = ['rating', 'product']
