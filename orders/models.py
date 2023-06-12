@@ -6,8 +6,8 @@ from django.db import models
 
 class Order(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE, related_name='orders')
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'Order {self.id}'
@@ -36,7 +36,7 @@ class Order(models.Model):
 
     @property
     def order_id(self):
-        return f"ORD-{self.id}-{self.created.year}"
+        return f"ORD-{self.id}-{self.created_at.year}"
 
 
 class OrderItem(models.Model):
