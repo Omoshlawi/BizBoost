@@ -17,9 +17,9 @@ class Order(models.Model):
         return self.payment.completed
 
     class Meta:
-        ordering = ['-created']
+        ordering = ['-created_at']
         indexes = [
-            models.Index(fields=['-created']),
+            models.Index(fields=['-created_at']),
         ]
 
     @property
