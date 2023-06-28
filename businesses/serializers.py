@@ -22,8 +22,10 @@ class BusinessCatalogSerializer(serializers.HyperlinkedModelSerializer):
             'additional_info', 'is_approved', 'image'
         )
         extra_kwargs = {
-            'url': {'view_name': 'businesses:business'},
+            'url': {'view_name': 'businesses:business-detail'},
             'owner': {'view_name': 'users:user-detail'},
+            'slug': {'read_only': True},
+            'is_approved': {'read_only': True}
         }
 
 
